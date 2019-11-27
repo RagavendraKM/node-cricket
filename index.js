@@ -26,8 +26,8 @@ app.get('/',function(req,res){
 
 app.use('/api', router);
 
-app.listen('3000', function(){
-    console.log('Server running on 3000');
+app.listen('5000', function(){
+    console.log('Server running on 5000');
 });
 
 module.exports = app;

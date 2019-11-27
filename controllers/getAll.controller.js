@@ -1,15 +1,14 @@
 var cricketSchema = require('../models/schema');
 
-function getAllMatches(req, res) {
-    console.log("Into All");
-    cricketSchema.find((err, match) => {
-        if (err) { 
-            console.log(err) 
-        }
-        else { 
-            res.json(match) 
-        }
-    })
+async function getYears(req, res) {
+    console.log("Into Seasons");
+    try {
+        const year = await cricketSchema.distinct("season");
+        res.send(year);
+    } catch(e) {
+        res.send(e);
+    }
+    
 }
 
-module.exports = getAllMatches;
+module.exports = getYears;
